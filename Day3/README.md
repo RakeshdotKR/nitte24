@@ -3,4 +3,5 @@ File:<br/>
 2.cpp: https://leetcode.com/problems/remove-k-digits/description/<br/>
 3.cpp: https://leetcode.com/problems/asteroid-collision/description/<br/>
 4.cpp: https://leetcode.com/problems/baseball-game/description/<br/>
-5.cpp: https://leetcode.com/problems/validate-stack-sequences/description/
+5.cpp: https://leetcode.com/problems/validate-stack-sequences/description/<br/>
+6.cpp: https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/description/
