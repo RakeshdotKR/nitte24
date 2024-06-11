@@ -4,4 +4,5 @@
 4.cpp: https://leetcode.com/problems/maximum-sum-circular-subarray/description/<br/>
 5.cpp: https://leetcode.com/problems/middle-of-the-linked-list/description/<br/>
 6.cpp: https://leetcode.com/problems/merge-two-sorted-lists/description/<br/>
-7.cpp: https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/
+7.cpp: https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/<br/>
+8.cpp: https://leetcode.com/problems/merge-nodes-in-between-zeros/description/
