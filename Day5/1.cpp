@@ -191,3 +191,180 @@ int main() {
     return 0;
 }
 
+//**********************************Binary Search Tree*******************************************************/
+#include <iostream>
+using namespace std;
+
+// Define the structure for a node in the binary search tree
+struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
+};
+
+// Class for Binary Search Tree
+class BST {
+private:
+    TreeNode* root;
+
+    // Helper function to insert a value in the BST
+    TreeNode* insert(TreeNode* node, int val) {
+        if (node == nullptr) {
+            return new TreeNode(val);
+        }
+        if (val < node->val) {
+            node->left = insert(node->left, val);
+        } else if (val > node->val) {
+            node->right = insert(node->right, val);
+        }
+        return node;
+    }
+
+    
+// Helper function to find the minimum value node in a subtree
+    TreeNode* findMin(TreeNode* node) {
+        while (node && node->left != nullptr) {
+            node = node->left;
+        }
+        return node;
+    }
+// Helper function to delete a value from the BST
+    TreeNode* deleteNode(TreeNode* node, int val) {
+        if (node == nullptr) {
+            return node;
+        }
+        if (val < node->val) {
+            node->left = deleteNode(node->left, val);
+        } else if (val > node->val) {
+            node->right = deleteNode(node->right, val);
+        } else {
+            if (node->left == nullptr) {
+                TreeNode* temp = node->right;
+                delete node;
+                return temp;
+            } else if (node->right == nullptr) {
+                TreeNode* temp = node->left;
+                delete node;
+                return temp;
+            }
+            TreeNode* temp = findMin(node->right);
+            node->val = temp->val;
+            node->right = deleteNode(node->right, temp->val);
+        }
+        return node;
+    }
+
+    // Helper function to search a value in the BST
+    bool search(TreeNode* node, int val) {
+        if (node == nullptr) {
+            return false;
+        }
+        if (val < node->val) {
+            return search(node->left, val);
+        } else if (val > node->val) {
+            return search(node->right, val);
+        } else {
+            return true;
+        }
+    }
+
+    // Helper function for inorder traversal
+    void inorder(TreeNode* node) {
+        if (node == nullptr) return;
+        inorder(node->left);
+        cout << node->val << " ";
+        inorder(node->right);
+    }
+
+    // Helper function for preorder traversal
+    void preorder(TreeNode* node) {
+        if (node == nullptr) return;
+        cout << node->val << " ";
+        preorder(node->left);
+        preorder(node->right);
+    }
+
+  
+  // Helper function for postorder traversal
+    void postorder(TreeNode* node) {
+        if (node == nullptr) return;
+        postorder(node->left);
+        postorder(node->right);
+        cout << node->val << " ";
+    }
+
+public:
+    BST() : root(nullptr) {}
+
+    // Public function to insert a value in the BST
+    void insert(int val) {
+        root = insert(root, val);
+    }
+
+    // Public function to delete a value from the BST
+    void deleteNode(int val) {
+        root = deleteNode(root, val);
+    }
+
+    // Public function to search a value in the BST
+    bool search(int val) {
+        return search(root, val);
+    }
+
+    // Public function for inorder traversal
+    void inorder() {
+        inorder(root);
+        cout << endl;
+    }
+
+    // Public function for preorder traversal
+    void preorder() {
+        preorder(root);
+        cout << endl;
+    }
+
+    // Public function for postorder traversal
+    void postorder() {
+        postorder(root);
+        cout << endl;
+    }
+};
+
+int main() {
+    BST bst;
+
+    // Insert elements into the BST
+    bst.insert(50);
+    bst.insert(30);
+    bst.insert(70);
+    bst.insert(20);
+    bst.insert(40);
+    bst.insert(60);
+    bst.insert(80);
+
+    // Inorder traversal
+    cout << "Inorder traversal: ";
+    bst.inorder();
+
+    // Preorder traversal
+    cout << "Preorder traversal: ";
+    bst.preorder();
+
+    // Postorder traversal
+    cout << "Postorder traversal: ";
+    bst.postorder();
+
+    // Search for an element
+    cout << "Search 40: " << (bst.search(40) ? "Found" : "Not Found") << endl;
+    cout << "Search 25: " << (bst.search(25) ? "Found" : "Not Found") << endl;
+
+    // Delete an element
+    bst.deleteNode(20);
+    cout << "Inorder traversal after deleting 20: ";
+    bst.inorder();
+
+    return 0;
+}
