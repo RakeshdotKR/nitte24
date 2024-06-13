@@ -4,4 +4,5 @@
 4.cpp: https://leetcode.com/problems/faulty-keyboard/description/<br/>
 5.cpp: https://leetcode.com/problems/maximum-odd-binary-number/description/<br/>
 6.cpp: https://leetcode.com/problems/replace-all-digits-with-characters/description/<br/>
-7.cpp: https://leetcode.com/problems/verifying-an-alien-dictionary/description/
+7.cpp: https://leetcode.com/problems/verifying-an-alien-dictionary/description/<br/>
+8.cpp: https://leetcode.com/problems/number-of-laser-beams-in-a-bank/description/
